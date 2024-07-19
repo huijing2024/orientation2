@@ -37,6 +37,18 @@
             font-weight: 400;
             font-style: normal;
         }
+        .bottom-button {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: url('./button-image.png') no-repeat center center;
+            background-size: contain;
+            width: 50px;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -47,18 +59,12 @@
         <button id="pause-button" onclick="pauseAudio()">
             <i class="fas fa-pause"></i>
         </button>
-        <button id="unmute-button" onclick="toggleMuteUnmute()">
-            <i class="fas fa-volume-up"></i>
-        </button>
-        <button id="mute-button" onclick="toggleMuteUnmute()" style="display: none;">
-            <i class="fas fa-volume-mute"></i>
-        </button>
         
         <div class="scene-description">
             <h1>Scene 1: Orientation</h1>
         </div>
     </div>
-
+    
     <a-scene>
         <!-- Skybox with JPG image -->
         <a-sky id="sky" src="./circus.jpeg"></a-sky>
@@ -66,6 +72,9 @@
         <!-- Add background audio -->
         <a-entity id="audio-entity" sound="src: url(./audio.mp3); autoplay: false; loop: true; poolSize: 1"></a-entity>
     </a-scene>
+    
+    <!-- Bottom button -->
+    <button class="bottom-button" onclick="window.location.href='https://example.com'"></button>
     
     <script>
         const audioEntity = document.querySelector('#audio-entity');
